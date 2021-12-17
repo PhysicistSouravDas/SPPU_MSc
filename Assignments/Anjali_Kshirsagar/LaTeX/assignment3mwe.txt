@@ -1,0 +1,7 @@
+program test
+integer, dimension(2, 2) :: WRITE
+I = 1
+J = 1
+WRITE(I, J) = I + J
+write(*,*) WRITE
+end program test

@@ -1,0 +1,274 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage{amsmath} % for align
+\usepackage{mathtools} % for aboxed
+\usepackage{amssymb} % therefore etc
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\geometry{
+    left = 0.9in,   % Refer: https://www.overleaf.com/learn/latex/Page_size_and_margins
+    right = 0.9in,  % for these parameters.
+    top = 0.5in,
+    bottom = 0.5in
+    } % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+% \graphicspath{
+%     {../Assignment-1/}
+% }
+% \usepackage{wrapfig}
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% For displaying nice program (python)
+% Refer: https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.92}
+\definecolor{shadowcolor}{rgb}{0.30, 0.41, 0.44}
+
+% Refer: https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings#Settings
+% for all possible settings
+\lstset{frame=tb,
+  language=Fortran,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,    % where to put the line-numbers; possible values are (none, left, right)
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  backgroundcolor=\color{backcolor},
+  frame=shadowbox,
+  rulesepcolor=\color{shadowcolor}
+%   breaklines=true,
+%   breakatwhitespace=true,
+%   tabsize=3
+}
+%%% End custom block for displaying program
+\usepackage{url}
+\setlength{\parindent}{0pt} % disabling auto indent in whole document
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+% \pagenumbering{gobble}
+\title{Assignment-3}
+\author{Sourav Das (\url{21021085@uopca.unipune.ac.in})}
+\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+
+\textbf{(a) Discuss the validity of the following groups of characters as FORTRAN variables. If you think they are not valid, give reasons.}
+\begin{enumerate}[(i)]
+    \item \lstinline{STOP}\\
+    \textbf{Ans.} This is \textbf{valid} as variable.
+    \item \lstinline{abc-1}\\
+    \textbf{Ans.} This is \textbf{not} a valid variable, since hyphen/negative sign is not allowed in variables. It is used as subtraction operator.
+    \item \lstinline{1A2B3C}\\
+    \textbf{Ans.} This is \textbf{not} a valid variable, since variables cannot start with numbers.
+    \item \lstinline{do I 3}\\
+    \textbf{Ans.} This is also \textbf{not} a valid variable, since a variable name cannot have spaces between the characters.
+    \item \lstinline{FUNCTION}\\
+    \textbf{Ans.} This is \textbf{valid} as a variable.
+\end{enumerate}
+\textbf{(b) Discuss the validity of the following statements as FORTRAN statements. If you think they are not valid, give reasons.}
+\begin{enumerate}[(i)]
+    \item \lstinline{doI = 2.54}\\
+    \textbf{Ans.} This is a \textbf{valid} statement. \lstinline{doI} is assigned to the value \lstinline{2.54}.
+    \item \lstinline{STOP = END}\\
+    \textbf{Ans.} If the type of \lstinline{STOP} and \lstinline{END} are declared, then \lstinline{STOP} and \lstinline{END} will work as variables instead of FORTRAN keywords, and this statement will assign the value of \lstinline{STOP} variable to that of \lstinline{END}, which is a valid statement. \\
+    Otherwise, a keyword cannot be assigned to something else. In that case, this statment is invalid.
+    \item \lstinline{WRITE(I, J) = I + J}\\
+    \textbf{Ans.} If the type of \lstinline{I, J} are declared, and assigned to a value, and \lstinline{WRITE} is defined as a 2D array, then this statement will perfectly work fine. A minimum working example is given below:
+    \lstinputlisting{assignment3mwe.txt}
+    Here, 2 is assigned to the element which is present in \lstinline{WRITE(1, 1)}. In line 6, the first \lstinline{write(*,*)} is acting as the keyword, and the second as variable, although FORTRAN is case-insensitive. So the given statement is \textbf{valid} in this case. 
+
+    Otherwise, if \lstinline{WRITE} is not declared in the program as a variable, then it will work as the keyword everywhere in the program, and it cannot be assigned to anything else. In that case, this statement will be \textbf{invalid}.
+    \newpage
+    \item \lstinline{A + B = C + D} \\
+    \textbf{Ans.} This is an \textbf{invalid} statement. Here, \lstinline{=} is acting as an assignment operator. On the left of \lstinline{=}, a single variable can be used, and on the right, an other variable, or a value, or an expression. Here, two variables are present to the left of \lstinline{=}, which is not a valid syntax.
+    \item \lstinline{if (I = J) exit}\\
+    \textbf{Ans.} This statement is \textbf{invalid}. In the parenthesis beside \lstinline{if}, a \textit{conditional} have to be used, resulting \lstinline{.true.} or \lstinline{.false.}. But here, assignment operation is done, which will result in syntax error. To correct this, \lstinline{==} can be used for comparison of equality of \lstinline{I} and \lstinline{J}.
+\end{enumerate}
+\textbf{(c)  Evaluate the following arithmetic expressions as Fortran arithmetic expressions (use default type for variables) given I = 6, J = 2, K = 3, L = 9, A = 2.4, B = -3.2, C = 2}.
+\begin{enumerate}[(i)]
+    \item \lstinline{N = I/J + K/(J + 1)}\\
+    \textbf{Ans.} 
+    \begin{align*}
+        N &= \frac{6}{2} + \frac{3}{(2+1)}  \\
+        N &= 3 + \frac{3}{3}    \\
+        N &= 3 + 1  \\
+        \therefore~\Aboxed{N &= 4}
+    \end{align*}
+    \item \lstinline{N = I**J**K}\\
+    \textbf{Ans.} 
+    \begin{align*}
+        N &= 6^{2^3}\\
+        N &= 6^{8}\\
+        \therefore~\Aboxed{N &= 1679616}
+    \end{align*}
+    \item \lstinline{D = C/I  + A/K}\\
+    \textbf{Ans.} 
+    \begin{align*}
+        D &= \frac{2.0}{6} + \frac{2.4}{3}\\
+        D &= 0.33\bar{3} + 0.8\\
+        \therefore~\Aboxed{D & = 1.13\bar{3}}
+    \end{align*}
+    \item \lstinline{E = B**A + K/L}\\
+    \textbf{Ans.} 
+    \begin{align*}
+        E &= -3.2^{2.4} + \frac{3}{9}\\
+        E &= \text{\lstinline{NaN}} + 0\\
+        \therefore~\Aboxed{E &= \text{\lstinline{NaN}}}
+    \end{align*}
+    Here, $-3.2^{2.4}$ is a complex number. But since, here, \lstinline{E} is \lstinline{implicit} data type, i.e., real, so it can not store complex data type. Hence, Not a Number (\lstinline{NaN}) is shown.
+    \item \lstinline{N = I+J/A*B + C/(J+K)}\\
+    \textbf{Ans.} 
+    \begin{align*}
+        N &= 6+ \frac{2}{2.4}(-3.2) + \frac{2.0}{2+3}\\
+        N &= 6 - 2.6\bar{6} + 0.4\\
+        N &= 3.7\bar{3}
+    \end{align*}
+    But since the implicit data type of N is integer, so, the values after decimal places will be truncated.
+    \[ \therefore~\boxed{N = 3} ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\]
+\end{enumerate}
+\newpage
+\textbf{(d) Give the output of the following program segments (use default type for variables).
+}
+(i)
+\begin{lstlisting}
+do I = 1,3
+    do J = 1,3
+        A(I,J) = I/J *(J/I)
+    enddo
+    write(*,10) (A(I,K), K = 1,3)
+enddo
+10 format (5 I 3)
+\end{lstlisting}
+\textbf{Ans.}
+\begin{verbatim}
+    1  0  0
+    0  1  0
+    0  0  1
+  
+\end{verbatim}
+(ii)
+\begin{lstlisting}
+N = 0
+do I = 1,3
+    do J = 1,I,2
+        do K = 1,J
+            do L = 1,K
+                N = N + 2
+            enddo
+        enddo
+    enddo
+enddo
+write(*,10) 'The value of N is', N
+10   format(I5)
+\end{lstlisting}
+\textbf{Ans.} Considering \lstinline{A17} is also included in the format descriptor before \lstinline{I5}, the output is:
+\begin{verbatim}
+    The value of N is   18
+
+\end{verbatim}
+\textbf{(e) Write a program to read the following matrix column-wise and write it as a matrix as it is.}\\
+A(1,1) = 1, A(1,2) = 2, A(1,3) = 3 \\
+A(2,1) = 4, A(2,2) = 5, A(2,3) = 6  \\
+A(3,1) = 7, A(3,2) = 8, A(3,3) = 9 \\
+\textbf{Ans.} 
+\begin{lstlisting}
+program MATRIX_COLUMNWISE
+    integer :: A(10,10)
+    ! A(1,1) = 1; A(1,2) = 2; A(1,3) = 3
+    ! A(2,1) = 4; A(2,2) = 5; A(2,3) = 6
+    ! A(3,1) = 7; A(3,2) = 8; A(3,3) = 9
+
+    ! Reading the matrix column-wise
+    ! row index I will change more than column index J
+    write(*,*) "Enter Order of Square Matrix."
+    read(*,*) N
+    write(*,*) "Enter Matrix Elements column-wise:"
+    do J = 1, N
+        do I = 1, N
+            read(*,*) A(I, J)
+        end do
+    end do
+    write(*,*) "The matrix is:"
+    do I = 1, N
+        write(*,*) (A(I, J), J=1,N)
+    end do
+end program MATRIX_COLUMNWISE
+! OUTPUT
+! Enter Order of Square Matrix.
+! 3
+!  Enter Matrix Elements column-wise:
+! 1
+! 4
+! 7
+! 2
+! 5
+! 8
+! 3
+! 6
+! 9
+!  The matrix is:
+!            1           2           3
+!            4           5           6
+!            7           8           9
+
+
+\end{lstlisting}
+
+\end{document}
