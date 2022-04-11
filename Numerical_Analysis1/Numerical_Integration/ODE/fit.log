@@ -1,0 +1,36 @@
+
+
+*******************************************************************************
+Tue Dec 28 04:27:58 2021
+
+
+FIT:    data read from 'euler.dat' u 1:2
+        format = x:z
+        #datapoints = 1001
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*exp(x*x/2) + b
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 1.0130153938e+03   0.00e+00  2.15e+00    1.000000e+00   1.000000e+00
+   3 9.5164344976e-04  -1.62e-01  2.15e-03    9.951225e-01   5.589334e-03
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 0.000951643
+rel. change during last iteration : -1.62444e-06
+
+degrees of freedom    (FIT_NDF)                        : 999
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00097601
+variance of residuals (reduced chisquare) = WSSR/ndf   : 9.52596e-07
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 0.995122         +/- 1.896e-05    (0.001906%)
+b               = 0.00558933       +/- 5.445e-05    (0.9742%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b              -0.824  1.000 

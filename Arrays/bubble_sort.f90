@@ -12,7 +12,7 @@ program bubble_sort
 
     ! implementing bubble-sorting algorithm (ascending order)
     do j = 1, n
-        do i = 1, n
+        do i = 1, n-1
             if (list(i) > list(i+1)) then
                 ! swapping ith element with (i+1)th
                 temp = list(i)

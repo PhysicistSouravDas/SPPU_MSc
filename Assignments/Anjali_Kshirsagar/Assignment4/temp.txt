@@ -1,0 +1,4 @@
+Initial number of nuclei, N0 = 842.34
+Decay constant, λ = 0.207 per second
+Activity, A = 174.647 Bq
+Half-life, (T1/2) = 3.343 second
